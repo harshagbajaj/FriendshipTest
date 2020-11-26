@@ -54,7 +54,7 @@ function askQuestion(questionNo, question, options, answer) {
 		console.log(chalk.yellowBright.bgGray.bold(" Correct Answer !! "));
 		return CORRECT_ANS_SCORE;
 	} else {
-		console.log(chalk.yellowBright.bgGray.bold(" Wrong Answer !!"));
+		console.log(chalk.red.bgGray.bold(" Wrong Answer !!"));
 		return WRONG_ANS_SCORE;
 	}
 }
@@ -70,12 +70,24 @@ function play()
 	
 	
   }
-  console.log("\nYour Final Score is: ", finalScore);
-  console.log("\nTHANK YOU FOR PLAYING GAME!!!!\n");
+  flag=true;
+  console.log(chalk.green.bgGray("\nYour Final Score is: ", finalScore));
+  console.log(chalk.green.bgGray("\nTHANK YOU FOR PLAYING GAME!!!!\n"));
 
 }
 
 play()
+
+while(flag && readlineSync.keyInYN(chalk.green.bgGray(`Do you want to play again?`)))
+{
+    console.log('\n');
+    console.log(chalk.green.bgGray(`==============================================`));
+    console.log(chalk.green.bgGray(`let's play again!`));
+    i=0;
+    score = 0;
+    play();
+    
+}
 
 
 
